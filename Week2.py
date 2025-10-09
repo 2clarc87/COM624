@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_csv("user_behavior_dataset.csv")
+df = pd.read_csv("Data/user_behavior_dataset.csv")
 df.dropna(inplace=True)
 df = df[df['Screen_On_Time'] > 0]
 
