@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-sns.set(style="whitegrid")  # For clean plots
+sns.set_theme(style="whitegrid")  # For clean plots
 
 # ------------------------------
 # STEP 2: Load and Inspect the Dataset
@@ -38,8 +38,7 @@ plt.show()
 # Pie chart - Proportion of missing vs non-missing
 missing_total = df.isnull().sum().sum()
 non_missing_total = df.size - missing_total
-plt.pie([missing_total, non_missing_total], labels=['Missing', 'Non-Missing'],
-        autopct='%1.1f%%', colors=['red', 'green'])
+plt.pie([missing_total, non_missing_total], labels=['Missing', 'Non-Missing'], autopct='%1.1f%%', colors=['red', 'green'])
 plt.title("Overall Missing Data Proportion")
 plt.show()
 
@@ -91,7 +90,7 @@ plt.show()
 
 # Multivariate: Correlation Heatmap
 plt.figure(figsize=(8,6))
-sns.heatmap(df_cleaned.corr(), annot=True, cmap='coolwarm')
+sns.heatmap(df_cleaned[['sales','profit']].corr(), annot=True, cmap='coolwarm')
 plt.title("Correlation Heatmap")
 plt.show()
 
@@ -122,10 +121,10 @@ df['Profit'] = df['Profit'].fillna(0)
 df['Country'] = df['Country'].fillna('Unknown')
 
 # Example 4: Forward Fill
-df['Sales'] = df['Sales'].fillna(method='ffill')
+df['Sales'] = df['Sales'].ffill()
 
 # Example 5: Backward Fill
-df['Sales'] = df['Sales'].fillna(method='bfill')
+df['Sales'] = df['Sales'].bfill()
 
 # Final check for missing values
 print("\nMissing values after filling:\n", df.isnull().sum())
