@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.venv/
+
+# PyCharm project files
+.idea/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Logs and local databases
+*.log
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Test cache
+.pytest_cache/
+.tox/
+
+# MyPy / Coverage / Linting
+.mypy_cache/
+.coverage
+htmlcov/
+.cache/
+
+# dotenv environment variable files
+.env
+.env.*
+
+# VSCode (optional)
+.vscode/
