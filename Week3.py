@@ -89,4 +89,46 @@ sns.boxplot(x=df_cleaned['sales'])
 plt.title("Sales Boxplot (Clean)")
 plt.show()
 
-# Multivari
+# Multivariate: Correlation Heatmap
+plt.figure(figsize=(8,6))
+sns.heatmap(df_cleaned.corr(), annot=True, cmap='coolwarm')
+plt.title("Correlation Heatmap")
+plt.show()
+
+# Multivariate: Scatterplot
+sns.scatterplot(x='sales', y='profit', data=df_cleaned)
+plt.title("Sales vs Profit")
+plt.show()
+
+# ------------------------------
+# STEP 8: Export Cleaned Dataset
+# ------------------------------
+df_cleaned.to_csv('Data/retail_sales_clean.csv', index=False)
+print("Cleaned data exported to Data/retail_sales_clean.csv")
+
+# ------------------------------
+# STEP 9: Optional – Fill Missing Values (Examples)
+# ------------------------------
+# Reload original messy data
+df = pd.read_csv('Data/retail_sales_final.csv')
+
+# Example 1: Fill 'Sales' with mean
+df['Sales'] = df['Sales'].fillna(df['Sales'].mean())
+
+# Example 2: Fill 'Profit' with 0
+df['Profit'] = df['Profit'].fillna(0)
+
+# Example 3: Fill 'Country' with 'Unknown'
+df['Country'] = df['Country'].fillna('Unknown')
+
+# Example 4: Forward Fill
+df['Sales'] = df['Sales'].fillna(method='ffill')
+
+# Example 5: Backward Fill
+df['Sales'] = df['Sales'].fillna(method='bfill')
+
+# Final check for missing values
+print("\nMissing values after filling:\n", df.isnull().sum())
+
+# Optional: Save this version too
+df.to_csv('Data/retail_sales_filled.csv', index=False)
