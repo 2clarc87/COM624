@@ -88,7 +88,7 @@ plt.show()
 df_cleaned.to_csv('retail_sales_clean.csv', index=False)
 print("Cleaned data exported to retail_sales_clean.csv")
 
-# Fill Missing Values ------------------------------------------------------------------
+# Fill Missing Values -----------------------------------------------------------------------------
 # Reload original messy data
 df = pd.read_csv('retail_sales_final.csv')
 
