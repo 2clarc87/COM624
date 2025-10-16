@@ -6,7 +6,7 @@ import seaborn as sns
 sns.set_theme(style="whitegrid")  # For clean plots
 
 # Load and Inspect the Dataset --------------------------------------------------------------------
-df = pd.read_csv('Data/retail_sales_final.csv')
+df = pd.read_csv('retail_sales_final.csv')
 print("First 5 rows:\n", df.head())
 print("\nData Summary Info:\n")
 df.info()
@@ -85,12 +85,12 @@ plt.title("Sales vs Profit")
 plt.show()
 
 # Export Cleaned Dataset --------------------------------------------------------------------------
-df_cleaned.to_csv('Data/retail_sales_clean.csv', index=False)
-print("Cleaned data exported to Data/retail_sales_clean.csv")
+df_cleaned.to_csv('retail_sales_clean.csv', index=False)
+print("Cleaned data exported to retail_sales_clean.csv")
 
 # Fill Missing Values ------------------------------------------------------------------
 # Reload original messy data
-df = pd.read_csv('Data/retail_sales_final.csv')
+df = pd.read_csv('retail_sales_final.csv')
 
 # Example 1: Fill 'Sales' with mean
 df['Sales'] = df['Sales'].fillna(df['Sales'].mean())
@@ -111,4 +111,4 @@ df['Sales'] = df['Sales'].bfill()
 print("\nMissing values after filling:\n", df.isnull().sum())
 
 # Save this version too
-df.to_csv('Data/retail_sales_filled.csv', index=False)
+df.to_csv('retail_sales_filled.csv', index=False)

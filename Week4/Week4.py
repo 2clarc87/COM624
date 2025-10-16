@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
 
-df = pd.read_csv('Data/fixed_usa_housing.csv')
+df = pd.read_csv('USA_Housing.csv')
 print(df.head())
 print(df.info())
 
